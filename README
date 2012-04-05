@@ -35,6 +35,10 @@ base https://github.com/CyanogenMod/android_device_samsung_galaxys2/tree/ics
     +include $(call all-makefiles-under,$(LOCAL_PATH))
     +endif
 
+  Setup device
+    cd CM9_SRC_DIR/device/samsung/galaxys2att
+    ./extract-files.sh
+
   build CM9
     cd CM9_SRC_DIR
     . build/envsetup.sh 
