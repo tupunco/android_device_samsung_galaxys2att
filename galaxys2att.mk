@@ -55,7 +55,7 @@ PRODUCT_COPY_FILES += \
 
 # Kernel modules for ramdisk
 RAMDISK_MODULES := $(addprefix device/samsung/galaxys2att/modules/,dhd.ko \
-	scsi_wait_scan.ko Si4709_driver.ko)
+	scsi_wait_scan.ko Si4709_driver.ko md4.ko dns_resolver.ko cifs.ko)
 
 PRODUCT_COPY_FILES += $(foreach module,\
 	$(RAMDISK_MODULES),\
@@ -68,7 +68,7 @@ PRODUCT_COPY_FILES += $(foreach module,\
 
 # The kernel itself
 PRODUCT_COPY_FILES += \
-    device/samsung/galaxys2att/zImage:kernel
+    device/samsung/galaxys2att/kernel:kernel
 
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/samsung/galaxys2att/galaxys2att-vendor.mk)

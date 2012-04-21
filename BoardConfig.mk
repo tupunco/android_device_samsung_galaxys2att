@@ -52,6 +52,10 @@ BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_CMDLINE := console=ttySAC2,115200 consoleblank=0
 TARGET_PREBUILT_KERNEL := device/samsung/galaxys2att/zImage
 
+# Inline kernel building
+#TARGET_KERNEL_SOURCE := kernel/samsung/smdk4210
+#TARGET_KERNEL_CONFIG := cyanogenmod_galaxys2att_defconfig
+
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
@@ -94,7 +98,7 @@ BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
-WIFI_DRIVER_MODULE_PATH          := "/lib/modules/dhd.ko"
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcm4330_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcm4330_apsta.bin"
@@ -129,4 +133,4 @@ TARGET_OTA_ASSERT_DEVICE := i777,galaxys2att,SGH-I777
 # Use the non-open-source parts, if they're present
 -include vendor/samsung/galaxys2att/BoardConfigVendor.mk
 
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/galaxys2/shbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/galaxys2att/shbootimg.mk
