@@ -53,8 +53,8 @@ BOARD_KERNEL_CMDLINE := console=ttySAC2,115200 consoleblank=0
 TARGET_PREBUILT_KERNEL := device/samsung/galaxys2att/kernel
 
 # Inline kernel building
-#TARGET_KERNEL_SOURCE := kernel/samsung/smdk4210
-#TARGET_KERNEL_CONFIG := cyanogenmod_galaxys2att_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/smdk4210
+TARGET_KERNEL_CONFIG := cyanogenmod_galaxys2att_defconfig
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -133,4 +133,4 @@ TARGET_OTA_ASSERT_DEVICE := i777,galaxys2att,SGH-I777
 # Use the non-open-source parts, if they're present
 -include vendor/samsung/galaxys2att/BoardConfigVendor.mk
 
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/galaxys2att/shbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/galaxys2/shbootimg.mk

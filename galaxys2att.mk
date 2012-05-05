@@ -89,23 +89,6 @@ endif
 PRODUCT_COPY_FILES += \
 	$(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
-# Kernel modules for ramdisk
-RAMDISK_MODULES := $(addprefix device/samsung/galaxys2att/modules/,dhd.ko \
-	scsi_wait_scan.ko Si4709_driver.ko md4.ko dns_resolver.ko cifs.ko)
-
-PRODUCT_COPY_FILES += $(foreach module,\
-	$(RAMDISK_MODULES),\
-	$(module):root/lib/modules/$(notdir $(module)))
-
-# Other kernel modules not in ramdisk
-PRODUCT_COPY_FILES += $(foreach module,\
-	$(filter-out $(RAMDISK_MODULES),$(wildcard device/samsung/galaxys2att/modules/*.ko)),\
-	$(module):system/lib/modules/$(notdir $(module)))
-
-# The kernel itself
-PRODUCT_COPY_FILES += \
-    device/samsung/galaxys2att/kernel:kernel
-
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/samsung/galaxys2att/galaxys2att-vendor.mk)
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
